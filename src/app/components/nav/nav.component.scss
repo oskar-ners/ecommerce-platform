@@ -1,0 +1,50 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #333;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+}
+
+.navigation-logo img {
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+}
+
+.navigation-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.navigation-menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s;
+}
+
+.navigation-menu a:hover {
+  color: #f4b400;
+}
+
+.navigation-menu i {
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    align-items: flex-start;
+  }
+
+  .navigation-menu {
+    gap: 10px;
+    margin-top: 10px;
+  }
+}

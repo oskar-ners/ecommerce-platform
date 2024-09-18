@@ -1,0 +1,20 @@
+<!-- Navigation -->
+<app-nav></app-nav>
+
+<!-- Banner -->
+<div class="banner">
+    <img class="banner-img"
+         src="assets/banner.jpg">
+</div>
+
+<!-- Categories -->
+<div class="categories-container">
+    @for (category of categories; track category.id) {
+    <a [routerLink]="category.name"
+       class="category-box">
+        <img [src]="category.image"
+             alt="{{ category.name }}">
+        <p class="category-box-name">{{ category.name }}</p>
+    </a>
+    }
+</div>
