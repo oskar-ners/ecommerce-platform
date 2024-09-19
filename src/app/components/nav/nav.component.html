@@ -1,9 +1,11 @@
 <div class="navigation">
-    <div class="navigation-logo">
+    <div routerLink="/homepage"
+         class="navigation-logo">
         <img src="assets/logo.jpg">
     </div>
     <div class="navigation-menu">
-        <a><i class="fa-solid fa-house"></i>Home</a>
-        <a><i class="fa-solid fa-cart-shopping"></i>Cart</a>
+        <a><i class="fa-solid fa-person"></i>Profile</a>
+        <a routerLink="/basket"><i
+               class="fa-solid fa-cart-shopping"></i>Cart({{basketService.getBasketProducts().length}})</a>
     </div>
 </div>

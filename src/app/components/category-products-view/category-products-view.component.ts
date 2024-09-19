@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 import { Product } from '../../interfaces/product.interface';
+import { BackButtonComponent } from "../back-button/back-button.component";
 
 @Component({
   selector: 'app-category-products-view',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, BackButtonComponent],
   templateUrl: './category-products-view.component.html',
   styleUrl: './category-products-view.component.scss',
 })
