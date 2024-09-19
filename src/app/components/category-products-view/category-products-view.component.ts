@@ -1,13 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 import { Product } from '../../interfaces/product.interface';
-import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-category-products-view',
   standalone: true,
-  imports: [CurrencyPipe],
+  imports: [RouterLink],
   templateUrl: './category-products-view.component.html',
   styleUrl: './category-products-view.component.scss',
 })

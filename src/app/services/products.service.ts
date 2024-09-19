@@ -31,4 +31,31 @@ export class ProductsService {
       return [];
     }
   }
+
+  async loadProductByCategoryAndId(
+    categoryName: string,
+    productId: string
+  ): Promise<Product | undefined> {
+    const categoryProductsCollection = collection(
+      this.firestore,
+      'categories',
+      categoryName,
+      'products'
+    );
+    try {
+      const productsData = await getDocs(categoryProductsCollection);
+
+      const product: Product | undefined = productsData.docs
+        .map((doc) => doc.data() as Product)
+        .find((product) => product.id === productId);
+
+      console.log(
+        `Product with id: ${productId} from category ${categoryName} loaded correctly!`
+      );
+      return product;
+    } catch {
+      console.warn('Failed to load product by category and id!');
+      return undefined;
+    }
+  }
 }

@@ -3,7 +3,7 @@ export interface Product {
   description: string;
   discount: boolean;
   discountValue: number;
-  id: number;
+  id: string;
   image: string;
   name: string;
   price: number;

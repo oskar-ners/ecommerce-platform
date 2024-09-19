@@ -1,5 +1,4 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { NavComponent } from '../nav/nav.component';
 import { CategoriesService } from '../../services/categories.service';
 import { Category } from '../../interfaces/category.interface';
 import { RouterLink } from '@angular/router';
@@ -7,7 +6,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [NavComponent, RouterLink],
+  imports: [RouterLink],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss',
 })
