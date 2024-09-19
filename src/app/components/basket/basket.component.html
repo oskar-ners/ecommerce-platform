@@ -12,12 +12,22 @@
             <h3 class="product-name">{{product?.name}}</h3>
             <p class="product-category">{{product?.category}}</p>
             <p class="product-description">{{product?.description}}</p>
+            @if(product?.discount) {
+
+            <span>price: <span class="line-through">{{product?.price}}zł</span> {{totalPrice(product?.price,
+                product?.discountValue)}}zł</span>
+            } @else {
+            <p>price: {{product?.price}}</p>
+            }
             <p class="product-id">Product ID: {{product?.id}}</p>
             <button (click)="removeProduct(product?.id)">Remove</button>
         </div>
     </div>
     }
+    <app-totals [orderTotal]="orderTotal"></app-totals>
 </div>
+
+<button routerLink="/checkout">Go to checkout</button>
 } @else {
 <h1>BASKET IS EMPTY!!!!</h1>
 }

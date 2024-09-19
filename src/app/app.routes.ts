@@ -4,6 +4,7 @@ import { CategoryProductsViewComponent } from './components/category-products-vi
 import { ProductViewDetailsComponent } from './components/product-view-details/product-view-details.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BasketComponent } from './components/basket/basket.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' },
@@ -14,5 +15,6 @@ export const routes: Routes = [
     component: ProductViewDetailsComponent,
   },
   { path: 'basket', component: BasketComponent },
+  { path: 'checkout', component: CheckoutComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
