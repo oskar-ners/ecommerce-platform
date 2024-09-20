@@ -1,3 +1,5 @@
+<h1>Welcome to Dark Net</h1>
+<h2>If you want to access our page you have to be registered!</h2>
 <div class="register-form">
     <h1>Register</h1>
     <form #form="ngForm"
@@ -27,7 +29,7 @@
         </p>
         }
         <button type="submit">Register</button>
-        <a routerLink="/">Already have an account? Log in!</a>
+        <a routerLink="/login">Already have an account? Log in!</a>
         @if(errorMessage) {
         <p class="error-submit">{{ errorMessage }}</p>
         }
