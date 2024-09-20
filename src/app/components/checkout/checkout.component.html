@@ -1,4 +1,11 @@
-THIS IS CHECKOUT!!!!!
+Your products:
+
+@for(product of products; track product?.id) {
+<div class="product-box">
+    <img [src]="product?.image">
+    <p>{{product?.price}}</p>
+</div>
+}
 
 YOUR ORDER TOTAL: {{orderTotal}}
 
