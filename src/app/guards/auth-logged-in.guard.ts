@@ -3,12 +3,16 @@ import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { firstValueFrom } from 'rxjs';
 
-export const authGuard: CanActivateFn = async (route, state) => {
+export const authLoggedInGuard: CanActivateFn = async (route, state) => {
   const authService = inject(AuthService);
   const router = inject(Router);
 
   const isLoggedIn = await firstValueFrom(authService.isLoggedIn$);
-  return isLoggedIn
-    ? true
-    : router.navigateByUrl('/register').then(() => false);
+
+  if (isLoggedIn) {
+    await router.navigateByUrl('/homepage');
+    return false;
+  }
+
+  return true;
 };

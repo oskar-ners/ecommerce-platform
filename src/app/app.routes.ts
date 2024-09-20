@@ -7,6 +7,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { authGuard } from './guards/auth.guard';
+import { authLoggedInGuard } from './guards/auth-logged-in.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'register', pathMatch: 'full' },
@@ -23,7 +24,15 @@ export const routes: Routes = [
   },
   { path: 'basket', component: BasketComponent, canActivate: [authGuard] },
   { path: 'checkout', component: CheckoutComponent, canActivate: [authGuard] },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [authLoggedInGuard],
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    canActivate: [authLoggedInGuard],
+  },
   { path: '**', redirectTo: 'register' },
 ];
