@@ -1,5 +1,5 @@
 <!-- Navigation -->
-@if(authService.isUserLoggedIn()) {
+@if(isLoggedIn$ | async) {
 <app-nav></app-nav>
 }
 
