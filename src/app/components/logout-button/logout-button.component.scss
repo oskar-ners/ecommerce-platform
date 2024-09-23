@@ -1,0 +1,27 @@
+.logout-btn {
+  padding: 10px;
+  background-color: #ff4c4c;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background-color: #ff1a1a;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    background-color: #e60000;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .logout-btn {
+    font-size: 0.9rem;
+  }
+}
