@@ -20,10 +20,10 @@ export class RegisterComponent {
 
   async onSubmit(form: NgForm): Promise<void> {
     if (form.valid) {
-      await this.authService.register(this.email, this.password);
+      await this.authService
+        .register(this.email, this.password)
+        .catch((error) => (this.errorMessage = error.message));
       this.router.navigateByUrl('homepage');
-    } else {
-      this.errorMessage = 'Form is not valid. Please check the input fields.';
     }
   }
 }

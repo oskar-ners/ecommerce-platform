@@ -3,4 +3,13 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: linear-gradient(45deg, #333, #555) !important;
+  height: 100vh;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+button,
+input,
+select {
+  font-family: "Space Grotesk", sans-serif !important;
 }

@@ -8,6 +8,7 @@ import { Router, RouterLink } from '@angular/router';
   standalone: true,
   imports: [FormsModule, RouterLink],
   templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
   authService = inject(AuthService);
@@ -15,10 +16,14 @@ export class LoginComponent {
 
   email: string = '';
   password: string = '';
+  errorMessage: string = '';
 
   async onSubmit(form: NgForm): Promise<void> {
     if (form.valid) {
-      await this.authService.login(this.email, this.password);
+      await this.authService.login(this.email, this.password).catch((error) => {
+        this.errorMessage = error.message;
+        throw error;
+      });
       this.router.navigateByUrl('homepage');
     }
   }
