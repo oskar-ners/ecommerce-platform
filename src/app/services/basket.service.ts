@@ -63,4 +63,16 @@ export class BasketService {
     const products = await this.getBasketProducts();
     this.basketProductsCount.next(products.length);
   }
+
+  async clearBasket(): Promise<void> {
+    const uid = this.firebaseAuth.currentUser?.uid;
+    if (uid) {
+      const userDocRef = doc(this.firestore, `users/${uid}`);
+      await updateDoc(userDocRef, {
+        cart: [],
+      });
+
+      await this.updateBasketCount();
+    }
+  }
 }

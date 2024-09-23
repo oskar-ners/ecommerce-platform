@@ -6,11 +6,13 @@
   position: relative;
   bottom: 0;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .footer p {
   margin: 0;
   font-size: 1.2rem;
+  word-wrap: break-word;
 }
 
 .social-icons {
@@ -29,6 +31,9 @@
 }
 
 @media (max-width: 768px) {
+  .footer {
+    padding: 1rem;
+  }
   .footer p {
     font-size: 1rem;
   }

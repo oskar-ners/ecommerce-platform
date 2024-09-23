@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { authGuard } from './guards/auth.guard';
 import { authLoggedInGuard } from './guards/auth-logged-in.guard';
+import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'register', pathMatch: 'full' },
@@ -33,6 +34,11 @@ export const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
     canActivate: [authLoggedInGuard],
+  },
+  {
+    path: 'checkout-success',
+    component: OrderConfirmationComponent,
+    canActivate: [authGuard],
   },
   { path: '**', redirectTo: 'register' },
 ];

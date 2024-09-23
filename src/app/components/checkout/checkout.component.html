@@ -1,18 +1,28 @@
-Your products:
+<div class="checkout-container">
+    <h2>Your Products</h2>
+    <div class="products-list">
+        @for(product of products; track product?.id) {
+        <div class="product-box">
+            <img [src]="product?.image"
+                 alt="{{product?.name}}">
+            <div class="product-details">
+                <h3 class="product-name">{{product?.name}}</h3>
+                @if(product?.discount) {
+                <span class="price">Price: <span class="line-through">{{product?.price}}zł</span>
+                    {{totalPrice(product?.price, product?.discountValue)}}zł</span>
+                } @else {
+                <p class="price">Price: {{product?.price}}zł</p>
+                }
+            </div>
+        </div>
+        }
+    </div>
 
-@for(product of products; track product?.id) {
-<div class="product-box">
-    <img [src]="product?.image">
-    @if(product?.discount) {
-    <span>price: <span class="line-through">{{product?.price}}zł</span> {{totalPrice(product?.price,
-        product?.discountValue)}}zł</span>
-    } @else {
-    <p>price: {{product?.price}}</p>
-    }
+    <div class="order-total">
+        <h3>Your Order Total: <span class="total-price">{{orderTotal}}zł</span></h3>
+    </div>
+
+    <button (click)="clearBasket()"
+            routerLink="/checkout-success"
+            class="place-order-button">PLACE ORDER</button>
 </div>
-}
-
-YOUR ORDER TOTAL: {{orderTotal}}
-
-
-<button>PLACE ORDER</button>

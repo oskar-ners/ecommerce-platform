@@ -4,11 +4,12 @@ import { Product } from '../../interfaces/product.interface';
 import { BasketService } from '../../services/basket.service';
 import { onAuthStateChanged } from 'firebase/auth';
 import { Auth } from '@angular/fire/auth';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.scss',
 })
@@ -28,6 +29,10 @@ export class CheckoutComponent implements OnInit {
         this.products = await this.basketService.getBasketProducts();
       }
     });
+  }
+
+  async clearBasket(): Promise<void> {
+    this.basketService.clearBasket();
   }
 
   totalPrice(price: number | undefined, discount: number | undefined) {

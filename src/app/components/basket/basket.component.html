@@ -13,20 +13,19 @@
             <p class="product-category">{{product?.category}}</p>
             <p class="product-description">{{product?.description}}</p>
             @if(product?.discount) {
-            <span>price: <span class="line-through">{{product?.price}}zł</span> {{totalPrice(product?.price,
+            <span>Price: <span class="line-through">{{product?.price}}zł</span> {{totalPrice(product?.price,
                 product?.discountValue)}}zł</span>
             } @else {
-            <p>price: {{product?.price}}</p>
+            <p>Price: {{product?.price}}zł</p>
             }
             <p class="product-id">Product ID: {{product?.id}}</p>
-            <button (click)="removeProduct(product)">Remove</button>
+            <button class="remove-button"
+                    (click)="removeProduct(product)">Remove</button>
         </div>
     </div>
     }
     <app-totals [orderTotal]="orderTotal"></app-totals>
 </div>
-
-<button routerLink="/checkout">Go to checkout</button>
 } @else {
-<h1>BASKET IS EMPTY!!!!</h1>
+<h1 class="empty-basket">BASKET IS EMPTY!!!!</h1>
 }
