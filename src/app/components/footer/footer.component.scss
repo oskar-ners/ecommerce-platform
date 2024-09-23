@@ -1,0 +1,39 @@
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.social-icons {
+  margin-top: 1rem;
+}
+
+.icon-link {
+  margin: 0 1rem;
+  color: #fff;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.icon-link:hover {
+  color: #ff6a00;
+}
+
+@media (max-width: 768px) {
+  .footer p {
+    font-size: 1rem;
+  }
+
+  .icon-link {
+    font-size: 1.2rem;
+  }
+}
