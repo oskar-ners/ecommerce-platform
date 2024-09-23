@@ -3,7 +3,12 @@ Your products:
 @for(product of products; track product?.id) {
 <div class="product-box">
     <img [src]="product?.image">
-    <p>{{product?.price}}</p>
+    @if(product?.discount) {
+    <span>price: <span class="line-through">{{product?.price}}zł</span> {{totalPrice(product?.price,
+        product?.discountValue)}}zł</span>
+    } @else {
+    <p>price: {{product?.price}}</p>
+    }
 </div>
 }
 

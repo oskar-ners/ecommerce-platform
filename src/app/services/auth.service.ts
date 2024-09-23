@@ -1,5 +1,6 @@
-import { Injectable, inject, signal } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
+import { Firestore, doc, setDoc } from '@angular/fire/firestore';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -12,6 +13,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
   auth = inject(Auth);
+  firestore = inject(Firestore);
 
   isLoggedIn = new BehaviorSubject<boolean>(this.checkIfUserLoggedIn());
   isLoggedIn$ = this.isLoggedIn.asObservable();
@@ -28,6 +30,10 @@ export class AuthService {
         email,
         password
       );
+
+      const uid = this.auth.currentUser?.uid;
+      const userDocRef = doc(this.firestore, `users/${uid}`);
+      setDoc(userDocRef, { uid, email, password, cart: [] });
 
       localStorage.setItem('isLoggedIn', JSON.stringify(true));
       this.isLoggedIn.next(true);

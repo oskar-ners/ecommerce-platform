@@ -1,36 +1,66 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Product } from '../interfaces/product.interface';
+import { Auth } from '@angular/fire/auth';
+import { Firestore, arrayRemove, doc } from '@angular/fire/firestore';
+import { arrayUnion, getDoc, updateDoc } from 'firebase/firestore';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BasketService {
-  basketItemsKey = 'basketItems';
+  firebaseAuth = inject(Auth);
+  firestore = inject(Firestore);
+
+  basketProductsCount = new BehaviorSubject<number>(0);
+  basketProductsCount$ = this.basketProductsCount.asObservable();
+
+  constructor() {
+    this.loadInitialBasketCount();
+  }
+
+  async loadInitialBasketCount(): Promise<void> {
+    const products = await this.getBasketProducts();
+    this.basketProductsCount.next(products.length);
+  }
 
   addProductToBasket(product: Product | undefined): void {
-    let basketProducts: (Product | undefined)[] = this.getBasketProducts();
-    basketProducts.push(product);
-    this.saveBasketProducts(basketProducts);
+    if (this.firebaseAuth.currentUser && product) {
+      const uid = this.firebaseAuth.currentUser.uid;
+      const userDocRef = doc(this.firestore, `users/${uid}`);
+      updateDoc(userDocRef, {
+        cart: arrayUnion(product),
+      });
+
+      this.updateBasketCount();
+    }
+  }
+  async removeProductFromBasket(product: Product | undefined): Promise<void> {
+    if (this.firebaseAuth.currentUser && product) {
+      const uid = this.firebaseAuth.currentUser.uid;
+      const userDocRef = doc(this.firestore, `users/${uid}`);
+
+      await updateDoc(userDocRef, {
+        cart: arrayRemove(product),
+      });
+
+      await this.updateBasketCount();
+    }
   }
 
-  removeProductFromBasket(productId: string | undefined) {
-    let basketProducts = this.getBasketProducts();
-    basketProducts = basketProducts.filter(
-      (product) => product.id !== productId
-    );
-    this.saveBasketProducts(basketProducts);
+  async getBasketProducts(): Promise<Product[]> {
+    const uid = this.firebaseAuth.currentUser?.uid;
+    if (uid) {
+      const userDocRef = doc(this.firestore, `users/${uid}`);
+      const userDoc = await getDoc(userDocRef);
+
+      return userDoc.exists() ? userDoc.data()?.['cart'] || [] : [];
+    }
+    return [];
   }
 
-  getBasketProducts(): Product[] {
-    const basketProducts = localStorage.getItem(this.basketItemsKey);
-    return basketProducts ? JSON.parse(basketProducts) : [];
-  }
-
-  saveBasketProducts(basketProducts: (Product | undefined)[]): void {
-    localStorage.setItem(this.basketItemsKey, JSON.stringify(basketProducts));
-  }
-
-  clearBasket(): void {
-    localStorage.removeItem(this.basketItemsKey);
+  async updateBasketCount(): Promise<void> {
+    const products = await this.getBasketProducts();
+    this.basketProductsCount.next(products.length);
   }
 }
