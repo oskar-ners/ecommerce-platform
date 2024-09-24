@@ -22,7 +22,7 @@
         <h3>Your Order Total: <span class="total-price">{{orderTotal}}zł</span></h3>
     </div>
 
-    <button (click)="placeOrder()"
+    <button (click)="placeOrder(orderTotal, products)"
             routerLink="/checkout-success"
             class="place-order-button">PLACE ORDER</button>
 </div>

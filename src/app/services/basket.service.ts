@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { Product } from '../interfaces/product.interface';
 import { Auth } from '@angular/fire/auth';
-import { Firestore, arrayRemove, doc } from '@angular/fire/firestore';
-import { arrayUnion, getDoc, updateDoc } from 'firebase/firestore';
+import { Firestore, arrayRemove, doc, setDoc } from '@angular/fire/firestore';
+import { arrayUnion, collection, getDoc, updateDoc } from 'firebase/firestore';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -64,11 +64,29 @@ export class BasketService {
     this.basketProductsCount.next(products.length);
   }
 
-  async placeOrder(): Promise<void> {
+  async placeOrder(
+    orderTotal: number,
+    products: (Product | undefined)[]
+  ): Promise<void> {
     const uid = this.firebaseAuth.currentUser?.uid;
+    const userOrdersCollection = collection(
+      this.firestore,
+      `users/${uid}`,
+      'orders'
+    );
     if (uid) {
-      await this.getBasketProducts();
-      await this.updateBasketCount();
+      localStorage.setItem('orderTotal', JSON.stringify(orderTotal));
+      localStorage.setItem('products', JSON.stringify(products));
+
+      const newOrderDocRef = doc(userOrdersCollection);
+
+      const orderId = newOrderDocRef.id;
+
+      await setDoc(newOrderDocRef, {
+        order_id: orderId,
+        ordered_products: products,
+        created_at: new Date(),
+      });
 
       const userDocRef = doc(this.firestore, `users/${uid}`);
       await updateDoc(userDocRef, {

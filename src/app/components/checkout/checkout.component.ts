@@ -31,8 +31,11 @@ export class CheckoutComponent implements OnInit {
     });
   }
 
-  async placeOrder(): Promise<void> {
-    this.basketService.placeOrder();
+  async placeOrder(
+    orderTotal: number,
+    products: (Product | undefined)[]
+  ): Promise<void> {
+    this.basketService.placeOrder(orderTotal, products);
   }
 
   totalPrice(price: number | undefined, discount: number | undefined) {

@@ -1,7 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { TotalsService } from '../../services/totals.service';
 import { Product } from '../../interfaces/product.interface';
-import { BasketService } from '../../services/basket.service';
 
 @Component({
   selector: 'app-order-confirmation',
@@ -11,15 +9,14 @@ import { BasketService } from '../../services/basket.service';
   styleUrl: './order-confirmation.component.scss',
 })
 export class OrderConfirmationComponent implements OnInit {
-  totalsService = inject(TotalsService);
-  basketService = inject(BasketService);
-
   orderTotal: number = 0;
   products: Product[] = [];
 
-  async ngOnInit(): Promise<void> {
-    this.orderTotal = await this.totalsService.getOrderTotal();
-    this.products = await this.basketService.getBasketProducts();
+  ngOnInit(): void {
+    this.orderTotal = Number(localStorage.getItem('orderTotal'));
+
+    const storedProducts = localStorage.getItem('products');
+    this.products = storedProducts ? JSON.parse(storedProducts) : [];
   }
 
   totalPrice(price: number | undefined, discount: number | undefined) {
