@@ -64,7 +64,7 @@ export class BasketService {
     this.basketProductsCount.next(products.length);
   }
 
-  async clearBasket(): Promise<void> {
+  async placeOrder(): Promise<void> {
     const uid = this.firebaseAuth.currentUser?.uid;
     if (uid) {
       await this.getBasketProducts();

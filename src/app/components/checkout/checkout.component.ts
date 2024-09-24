@@ -31,8 +31,8 @@ export class CheckoutComponent implements OnInit {
     });
   }
 
-  async clearBasket(): Promise<void> {
-    this.basketService.clearBasket();
+  async placeOrder(): Promise<void> {
+    this.basketService.placeOrder();
   }
 
   totalPrice(price: number | undefined, discount: number | undefined) {
