@@ -11,11 +11,12 @@ import { BackButtonComponent } from '../back-button/back-button.component';
 })
 export class OrderConfirmationComponent implements OnInit {
   orderTotal: number = 0;
+  orderID: string = '';
   products: Product[] = [];
 
   ngOnInit(): void {
     this.orderTotal = Number(localStorage.getItem('orderTotal'));
-
+    this.orderID = String(localStorage.getItem('orderID'));
     const storedProducts = localStorage.getItem('products');
     this.products = storedProducts ? JSON.parse(storedProducts) : [];
   }

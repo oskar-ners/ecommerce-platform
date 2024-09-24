@@ -75,12 +75,12 @@ export class BasketService {
       'orders'
     );
     if (uid) {
+      const newOrderDocRef = doc(userOrdersCollection);
+      const orderId = newOrderDocRef.id;
+
       localStorage.setItem('orderTotal', JSON.stringify(orderTotal));
       localStorage.setItem('products', JSON.stringify(products));
-
-      const newOrderDocRef = doc(userOrdersCollection);
-
-      const orderId = newOrderDocRef.id;
+      localStorage.setItem('orderID', JSON.stringify(orderId));
 
       await setDoc(newOrderDocRef, {
         order_id: orderId,
