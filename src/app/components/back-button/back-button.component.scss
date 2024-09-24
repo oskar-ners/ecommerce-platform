@@ -1,14 +1,14 @@
-.back-button {
-    margin: 20px 0 0 20px;
-    padding: 0.8rem 1.5rem;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .back-button:hover {
+.back-button,
+.homepage-button {
+  margin: 94px 0 0 20px;
+  padding: 0.8rem 1.5rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
     background-color: #0056b3;
   }
+}

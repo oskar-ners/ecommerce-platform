@@ -1,2 +1,7 @@
+@if(isCheckoutSuccess) {
+<button (click)="goToHomepage()"
+        class="homepage-button">Go To Homepage</button>
+} @else {
 <button (click)="goBack()"
         class="back-button">Go Back</button>
+}

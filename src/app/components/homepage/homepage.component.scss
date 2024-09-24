@@ -66,6 +66,9 @@
   box-sizing: border-box;
 }
 @media (max-width: 768px) {
+  .banner {
+    margin-top: 78px;
+  }
   .banner-img {
     height: auto;
   }

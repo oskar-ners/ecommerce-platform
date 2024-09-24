@@ -1,5 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-back-button',
@@ -10,8 +11,15 @@ import { Location } from '@angular/common';
 })
 export class BackButtonComponent {
   location = inject(Location);
+  router = inject(Router);
+
+  @Input() isCheckoutSuccess?: boolean = false;
 
   goBack(): void {
     this.location.back();
+  }
+
+  goToHomepage(): void {
+    this.router.navigateByUrl('/homepage');
   }
 }

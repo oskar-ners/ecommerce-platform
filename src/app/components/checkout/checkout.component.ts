@@ -5,11 +5,12 @@ import { BasketService } from '../../services/basket.service';
 import { onAuthStateChanged } from 'firebase/auth';
 import { Auth } from '@angular/fire/auth';
 import { RouterLink } from '@angular/router';
+import { BackButtonComponent } from '../back-button/back-button.component';
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, BackButtonComponent],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.scss',
 })

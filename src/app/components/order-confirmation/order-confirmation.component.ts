@@ -1,10 +1,11 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
+import { BackButtonComponent } from '../back-button/back-button.component';
 
 @Component({
   selector: 'app-order-confirmation',
   standalone: true,
-  imports: [],
+  imports: [BackButtonComponent],
   templateUrl: './order-confirmation.component.html',
   styleUrl: './order-confirmation.component.scss',
 })
