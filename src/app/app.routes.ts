@@ -10,6 +10,7 @@ import { authGuard } from './guards/auth.guard';
 import { authLoggedInGuard } from './guards/auth-logged-in.guard';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 import { checkoutSuccessGuard } from './guards/checkout-success.guard';
+import { ProfileComponent } from './components/profile/profile.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'register', pathMatch: 'full' },
@@ -36,6 +37,7 @@ export const routes: Routes = [
     component: RegisterComponent,
     canActivate: [authLoggedInGuard],
   },
+  { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
   {
     path: 'checkout-success',
     component: OrderConfirmationComponent,
