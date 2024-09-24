@@ -15,6 +15,8 @@ export class LogoutButtonComponent {
 
   async logout(): Promise<void> {
     try {
+      localStorage.removeItem('products');
+      localStorage.removeItem('orderTotal');
       await this.authService.signOut();
       this.router.navigateByUrl('/login');
     } catch (error) {
