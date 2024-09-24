@@ -86,6 +86,7 @@ export class BasketService {
         order_id: orderId,
         ordered_products: products,
         created_at: new Date(),
+        price: orderTotal,
       });
 
       const userDocRef = doc(this.firestore, `users/${uid}`);

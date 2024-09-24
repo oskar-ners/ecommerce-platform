@@ -14,6 +14,7 @@ export class RegisterComponent {
   authService = inject(AuthService);
   router = inject(Router);
 
+  username: string = '';
   email: string = '';
   password: string = '';
   errorMessage: string = '';
@@ -21,7 +22,7 @@ export class RegisterComponent {
   async onSubmit(form: NgForm): Promise<void> {
     if (form.valid) {
       await this.authService
-        .register(this.email, this.password)
+        .register(this.username, this.email, this.password)
         .catch((error) => (this.errorMessage = error.message));
       this.router.navigateByUrl('homepage');
     }

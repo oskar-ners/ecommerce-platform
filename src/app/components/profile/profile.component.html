@@ -1,2 +1,53 @@
 <app-back-button></app-back-button>
-<h1>WELCOME TO YOUR PROFILE</h1>
+
+<div class="profile-container">
+    <div class="user-card">
+        <h1>Welcome, {{username}}</h1>
+        <p>Do you want to change your username?</p>
+        <form #form="ngForm"
+              (ngSubmit)="onSubmit(form, newUsername)">
+            <label for="new-username">
+                <input type="text"
+                       name="new-username"
+                       id="new-username"
+                       [(ngModel)]="newUsername">
+            </label>
+            @if(form.submitted && !newUsername) {
+            <p class="error">
+                Password is required.
+            </p>
+            }
+            <button type="submit">Change</button>
+        </form>
+
+    </div>
+
+    <div class="orders-card">
+        <h2>Your orders</h2>
+        <div class="orders-list">
+            @for(order of orders; track order.order_id) {
+            <div class="order-item">
+                <h3>Order ID: {{order.order_id}}</h3>
+                <p>Date: {{formatDate(order.created_at)}}</p>
+                <p>Price: {{order.price}}zł</p>
+
+                <div class="ordered-products">
+                    <h4>Ordered products:</h4>
+                    @for(product of order.ordered_products; track product.id) {
+                    <div class="product-item">
+                        <img [src]="product.image"
+                             alt="{{product.name}}"
+                             class="product-image" />
+                        <div class="product-info">
+                            <p><strong>Name:</strong> {{product.name}}</p>
+                            <p><strong>Category:</strong> {{product.category}}</p>
+                            <p><strong>Description:</strong> {{product.description}}</p>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>

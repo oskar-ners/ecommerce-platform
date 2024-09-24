@@ -1,0 +1,75 @@
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #333, #555) !important;
+}
+
+.user-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.orders-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.orders-list {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.order-item {
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0;
+  background: #fafafa;
+}
+
+.ordered-products {
+  margin-top: 10px;
+}
+
+.product-item {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 5px 0;
+  background: #fff;
+}
+
+.product-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.product-info {
+  flex-grow: 1;
+}
+
+.error {
+  font-size: 11px;
+  color: red;
+}

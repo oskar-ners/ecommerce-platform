@@ -5,8 +5,10 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from 'firebase/auth';
 import { BehaviorSubject } from 'rxjs';
+import { ProfileService } from './profile.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +16,7 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
   auth = inject(Auth);
   firestore = inject(Firestore);
+  profileService = inject(ProfileService);
 
   isLoggedIn = new BehaviorSubject<boolean>(this.checkIfUserLoggedIn());
   isLoggedIn$ = this.isLoggedIn.asObservable();
@@ -23,7 +26,11 @@ export class AuthService {
     return isLoggedIn ? JSON.parse(isLoggedIn) : false;
   }
 
-  async register(email: string, password: string): Promise<void> {
+  async register(
+    username: string,
+    email: string,
+    password: string
+  ): Promise<void> {
     try {
       const userData = await createUserWithEmailAndPassword(
         this.auth,
@@ -33,7 +40,13 @@ export class AuthService {
 
       const uid = this.auth.currentUser?.uid;
       const userDocRef = doc(this.firestore, `users/${uid}`);
-      setDoc(userDocRef, { uid, email, password, cart: [] });
+      setDoc(userDocRef, { uid, username, email, password, cart: [] });
+
+      updateProfile(userData.user, {
+        displayName: username,
+      });
+
+      this.profileService.profileUserName.next(username);
 
       localStorage.setItem('isLoggedIn', JSON.stringify(true));
       this.isLoggedIn.next(true);
