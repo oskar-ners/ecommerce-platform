@@ -67,6 +67,9 @@ export class BasketService {
   async clearBasket(): Promise<void> {
     const uid = this.firebaseAuth.currentUser?.uid;
     if (uid) {
+      await this.getBasketProducts();
+      await this.updateBasketCount();
+
       const userDocRef = doc(this.firestore, `users/${uid}`);
       await updateDoc(userDocRef, {
         cart: [],

@@ -1,1 +1,37 @@
-THANK YOU FOR YOUR ORDER!!!!!!
+<section class="order-confirmation">
+    <div class="confirmation-header">
+        <h1>Thank You for Your Order!</h1>
+        <p class="order-total">Total Amount: {{ orderTotal }}zł</p>
+        <p class="description">
+            Your order has been successfully placed. You will receive an email confirmation shortly.
+        </p>
+    </div>
+
+    <div class="products-list">
+        <h2>Order Summary</h2>
+        <ul>
+            @for(product of products; track product.id) {
+            <li class="product-item">
+                <div class="product-image">
+                    <img [src]="product.image"
+                         [alt]="product.name" />
+                </div>
+                <div class="product-info">
+                    <h3>{{ product.name }}</h3>
+                    <p>{{ product.description }}</p>
+                    @if(product?.discount) {
+                    <span class="price">Price: <span class="line-through">{{product?.price}}zł</span>
+                        {{totalPrice(product?.price, product?.discountValue)}}zł</span>
+                    } @else {
+                    <p class="price">Price: {{product?.price}}zł</p>
+                    }
+                </div>
+            </li>
+            }
+        </ul>
+    </div>
+
+    <div class="final-message">
+        <p>We hope you enjoy your purchase! If you have any questions, feel free to contact our support team.</p>
+    </div>
+</section>
