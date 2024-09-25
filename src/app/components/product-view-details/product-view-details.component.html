@@ -11,9 +11,10 @@
             <li>{{currentProduct?.description}}</li>
         </ul>
         @if(currentProduct?.material) {
-        <div class="product-material">
-            Material: {{ currentProduct?.material }}
-        </div>
+        <p style="font-weight: bold; font-size: 1.2rem; margin-bottom: 0px">Material:</p>
+        <ul>
+            <li>{{currentProduct?.material}}</li>
+        </ul>
         }
 
         @if(currentProduct?.availableColors) {

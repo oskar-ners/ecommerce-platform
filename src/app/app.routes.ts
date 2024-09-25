@@ -11,6 +11,7 @@ import { authLoggedInGuard } from './guards/auth-logged-in.guard';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 import { checkoutSuccessGuard } from './guards/checkout-success.guard';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ProductsListingComponent } from './components/products-listing/products-listing.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'register', pathMatch: 'full' },
@@ -23,6 +24,11 @@ export const routes: Routes = [
   {
     path: 'homepage/:categoryName/:id',
     component: ProductViewDetailsComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'products-listing',
+    component: ProductsListingComponent,
     canActivate: [authGuard],
   },
   { path: 'basket', component: BasketComponent, canActivate: [authGuard] },

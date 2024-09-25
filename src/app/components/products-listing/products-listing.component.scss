@@ -1,0 +1,107 @@
+.product-listing {
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem 2rem;
+  }
+
+  &__item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  &__image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .line-through {
+    text-decoration: line-through;
+    color: #b00;
+    font-weight: bold;
+  }
+
+  &__details {
+    padding: 1.5rem;
+
+    &__name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #222;
+    }
+
+    &__description {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__price-container {
+    margin-top: 1rem;
+
+    .line-through {
+      text-decoration: line-through;
+      color: #999;
+    }
+
+    &--discounted {
+      font-size: 1.25rem;
+      color: #e74c3c;
+
+      .line-through {
+        margin-right: 0.5rem;
+      }
+    }
+
+    &__price {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #27ae60;
+    }
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .product-listing {
+    &__grid {
+      padding: 0 1rem;
+      grid-template-columns: 1fr;
+    }
+
+    &__item {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

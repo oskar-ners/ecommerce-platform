@@ -50,10 +50,16 @@
       color: #777;
       margin-bottom: 15px;
     }
-  }
-}
 
-.line-through {
-  text-decoration: line-through;
-  margin-right: 10px;
+    .product-price {
+      text-decoration: line-through;
+      color: #b00;
+      font-weight: bold;
+      margin-right: 5px;
+      &-discount {
+        color: #e63946;
+        font-weight: bold;
+      }
+    }
+  }
 }

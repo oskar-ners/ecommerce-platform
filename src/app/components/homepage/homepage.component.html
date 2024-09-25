@@ -6,15 +6,27 @@
 
 <!-- Categories -->
 <div class="categories-container">
-    @for (category of categories; track category.id) {
+    @for (category of categories; track category.id; let i = $index) {
     <a [routerLink]="category.name"
        class="category-box">
         <img [src]="category.image"
              alt="{{ category.name }}">
-        <p class="category-box-name">{{ category.name }}</p>
+        <p class="category-box-name">
+            @if(i === 0){<i class="fa-solid fa-truck"></i>}
+            @if(i === 1){<i class="fa-solid fa-shirt"></i>}
+            @if(i === 2){<i class="fa-solid fa-mobile"></i>}
+            @if(i === 3){<i class="fa-solid fa-couch"></i>}
+            {{ category.name }}</p>
     </a>
     }
 </div>
+
+<!-- go to PLP Button-->
+<div class="go-to-plp">
+    <button routerLink="/products-listing"
+            class="go-to-plp-button">Go to PLP</button>
+</div>
+
 
 <!-- Footer -->
 <app-footer></app-footer>

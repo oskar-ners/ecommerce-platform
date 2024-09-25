@@ -1,5 +1,6 @@
 <app-back-button></app-back-button>
-<h1 style="color: white; text-align: center; letter-spacing: 2px; text-transform: uppercase;">{{currentCategory | titlecase}}</h1>
+<h1 style="color: white; text-align: center; letter-spacing: 2px; text-transform: uppercase;">{{currentCategory |
+    titlecase}}</h1>
 <div class="products-container">
     @for(product of products; track product.id) {
     <a [routerLink]="product.id"
@@ -9,11 +10,16 @@
              class="product-image">
         <div class="product-details">
             <h3 class="product-name">{{ product.name }}</h3>
+            <p class="product-description">{{ product.description }}</p>
             @if(!product.discount) {
-            <p>Price: {{product.price}}zł</p>
+
+            <span style="font-weight: bold; color: black">Price:&nbsp;</span>
+            <span style="font-weight: bold; color: black">{{product.price}}zł</span>
             } @else {
-            <p>Price: <span class="line-through">{{product.price}}zł</span><span>{{product.price +
-                    product.discountValue}}zł</span></p>
+            <p><span style="font-weight: bold; color: black">Price:&nbsp;</span>
+                <span class="product-price">{{product.price}}zł</span>
+                <span class="product-price-discount">{{product.price + product.discountValue}}zł</span>
+            </p>
             }
         </div>
     </a>
