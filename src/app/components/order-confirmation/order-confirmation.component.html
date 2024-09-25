@@ -20,7 +20,7 @@
                 </div>
                 <div class="product-info">
                     <h3>{{ product.name }}</h3>
-                    <p>{{ product.description }}</p>
+                    <p>Description: {{ product.description }}</p>
                     @if(product?.discount) {
                     <span class="price">Price: <span class="line-through">{{product?.price}}zł</span>
                         {{totalPrice(product?.price, product?.discountValue)}}zł</span>

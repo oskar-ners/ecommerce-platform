@@ -6,7 +6,10 @@
     </div>
     <div class="product-details">
         <h1 class="product-name">{{ currentProduct?.name }}</h1>
-        <p class="product-description">Description: {{ currentProduct?.description }}</p>
+        <p style="font-weight: bold; font-size: 1.2rem; margin-bottom: 0px">Description:</p>
+        <ul>
+            <li>{{currentProduct?.description}}</li>
+        </ul>
         @if(currentProduct?.material) {
         <div class="product-material">
             Material: {{ currentProduct?.material }}
@@ -15,7 +18,7 @@
 
         @if(currentProduct?.availableColors) {
         <div class="product-colors">
-            <p>Available Colors:</p>
+            <p style="font-weight: bold;">Available Colors:</p>
             <ul>
                 @for(color of currentProduct?.availableColors; track color) {
                 <li>{{ color }}</li>
@@ -26,7 +29,7 @@
 
         @if(currentProduct?.specs) {
         <div class="product-specs">
-            <p>Specs:</p>
+            <p style="font-weight: bold;">Specs:</p>
             <ul>
                 @for(spec of currentProduct?.specs; track spec) {
                 <li>{{ spec }}</li>
@@ -37,7 +40,7 @@
 
         @if(currentProduct?.sizes) {
         <div class="product-sizes">
-            <p>Available Sizes:</p>
+            <p style="font-weight: bold;">Available Sizes:</p>
             <ul>
                 @for(size of currentProduct?.sizes; track size) {
                 <li>{{ size }}</li>
@@ -48,12 +51,13 @@
 
         <div class="product-price">
             @if(!currentProduct?.discount) {
-            <p>Price: {{ currentProduct?.price }}zł</p>
+            <p style="font-weight: bold;">Price: {{ currentProduct?.price }}zł</p>
 
             }
             @else {
-            <p>Price:
-                <span style="margin-right: 10px;" class="line-through">{{ currentProduct?.price }}zł</span>
+            <p style="font-weight: bold;">Price:
+                <span style="margin-right: 10px;"
+                      class="line-through">{{ currentProduct?.price }}zł</span>
                 <span>{{ totalPrice(currentProduct?.price, currentProduct?.discountValue) }}zł</span>
             </p>
             }
