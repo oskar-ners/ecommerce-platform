@@ -35,6 +35,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     transform: scale(1.05);
@@ -54,7 +55,8 @@
     font-weight: 600;
     color: #333;
     margin: 0;
-    text-transform: capitalize;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 }
 
@@ -71,13 +73,5 @@
   }
   .banner-img {
     height: auto;
-  }
-
-  .categories-container {
-    padding: 10px;
-  }
-
-  .category-box {
-    padding: 10px;
   }
 }

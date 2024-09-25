@@ -2,21 +2,62 @@
 <div class="product-container">
     <div class="product-image">
         <img [src]="currentProduct?.image"
-             alt="{{currentProduct?.name}}" />
+             alt="{{ currentProduct?.name }}" />
     </div>
     <div class="product-details">
-        <h1 class="product-name">{{currentProduct?.name}}</h1>
-        <p class="product-description">{{currentProduct?.description}}</p>
+        <h1 class="product-name">{{ currentProduct?.name }}</h1>
+        <p class="product-description">Description: {{ currentProduct?.description }}</p>
+        @if(currentProduct?.material) {
+        <div class="product-material">
+            Material: {{ currentProduct?.material }}
+        </div>
+        }
 
-        @if(!currentProduct?.discount) {
-        <p>Price: {{currentProduct?.price}}zł</p>
+        @if(currentProduct?.availableColors) {
+        <div class="product-colors">
+            <p>Available Colors:</p>
+            <ul>
+                @for(color of currentProduct?.availableColors; track color) {
+                <li>{{ color }}</li>
+                }
+            </ul>
+        </div>
         }
-        @else {
-        <p>Price:
-            <span class="line-through">{{currentProduct?.price}}zł</span>
-            <span>{{totalPrice(currentProduct?.price, currentProduct?.discountValue)}}zł</span>
-        </p>
+
+        @if(currentProduct?.specs) {
+        <div class="product-specs">
+            <p>Specs:</p>
+            <ul>
+                @for(spec of currentProduct?.specs; track spec) {
+                <li>{{ spec }}</li>
+                }
+            </ul>
+        </div>
         }
+
+        @if(currentProduct?.sizes) {
+        <div class="product-sizes">
+            <p>Available Sizes:</p>
+            <ul>
+                @for(size of currentProduct?.sizes; track size) {
+                <li>{{ size }}</li>
+                }
+            </ul>
+        </div>
+        }
+
+        <div class="product-price">
+            @if(!currentProduct?.discount) {
+            <p>Price: {{ currentProduct?.price }}zł</p>
+
+            }
+            @else {
+            <p>Price:
+                <span style="margin-right: 10px;" class="line-through">{{ currentProduct?.price }}zł</span>
+                <span>{{ totalPrice(currentProduct?.price, currentProduct?.discountValue) }}zł</span>
+            </p>
+            }
+        </div>
 
         <button (click)="addToBasket(currentProduct)"
                 class="add-to-cart">Add to Cart</button>

@@ -7,6 +7,8 @@
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .product-item {
@@ -75,6 +77,8 @@
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .remove-button:hover {

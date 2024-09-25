@@ -1,5 +1,5 @@
 <app-back-button></app-back-button>
-<h1 style="color: white; text-align: center;">{{currentCategory | titlecase}}</h1>
+<h1 style="color: white; text-align: center; letter-spacing: 2px; text-transform: uppercase;">{{currentCategory | titlecase}}</h1>
 <div class="products-container">
     @for(product of products; track product.id) {
     <a [routerLink]="product.id"
