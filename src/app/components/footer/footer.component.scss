@@ -7,14 +7,13 @@
   bottom: 0;
   width: 100%;
   box-sizing: border-box;
-}
-
-.footer p {
-  margin: 0;
-  font-size: 1.2rem;
-  word-wrap: break-word;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  p {
+    margin: 0;
+    font-size: 1.2rem;
+    word-wrap: break-word;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
 }
 
 .social-icons {
@@ -26,10 +25,9 @@
   color: #fff;
   font-size: 1.5rem;
   transition: color 0.3s;
-}
-
-.icon-link:hover {
-  color: #ff6a00;
+  &:hover {
+    color: #ff6a00;
+  }
 }
 
 @media (max-width: 768px) {

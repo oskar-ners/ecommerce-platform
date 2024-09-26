@@ -1,6 +1,7 @@
 .navigation {
   position: fixed;
   z-index: 1000;
+  max-height: 77px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -17,7 +18,7 @@
 }
 
 .navigation-logo img {
-  height: 40px;
+  height: 85px;
   width: auto;
   cursor: pointer;
 }
@@ -48,13 +49,22 @@
   font-size: 20px;
 }
 
+.navigation-logo.mobile img {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .navigation {
-    align-items: flex-start;
+    justify-content: center;
+    box-shadow: none;
   }
-
   .navigation-menu {
-    gap: 10px;
-    margin-top: 10px;
+    display: none;
+  }
+  .navigation-logo img {
+    display: none;
+  }
+  .navigation-logo.mobile img {
+    display: block;
   }
 }

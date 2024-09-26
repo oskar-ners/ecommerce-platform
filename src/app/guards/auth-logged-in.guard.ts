@@ -3,7 +3,7 @@ import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { firstValueFrom } from 'rxjs';
 
-export const authLoggedInGuard: CanActivateFn = async (route, state) => {
+export const authLoggedInGuard: CanActivateFn = async () => {
   const authService = inject(AuthService);
   const router = inject(Router);
 

@@ -4,8 +4,34 @@ import { Component, Input } from '@angular/core';
   selector: 'app-price',
   standalone: true,
   imports: [],
-  templateUrl: './price.component.html',
-  styleUrl: './price.component.scss',
+  template: `
+    @if(isDiscount) {
+    <span class="price-text"
+      >Price:
+      <span class="line-through">{{ price }}zł</span>
+      <span class="price-discount"
+        >{{ totalPrice(price, discountValue) }}zł</span
+      >
+    </span>
+    } @else {
+    <p class="price-text">Price: {{ price }}zł</p>
+    }
+  `,
+  styles: `
+    .line-through {
+        text-decoration: line-through;
+        color: #b00;
+        font-weight: bold;
+    }
+    .price-text {
+        font-weight: bold;
+        color: black;
+    }
+    .price-discount {
+        color: #e63946;
+        margin-left: 5px;
+    }
+  `,
 })
 export class PriceComponent {
   @Input() isDiscount!: boolean | undefined;

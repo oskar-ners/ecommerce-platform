@@ -1,4 +1,3 @@
-// Variables for theme colors and fonts
 $primary-color: #2c3e50;
 $accent-color: #3498db;
 $background-color: #f5f7fa;
@@ -130,7 +129,6 @@ body {
     }
   }
 
-  // Responsive Design
   @media (max-width: 768px) {
     padding: $spacing;
 
@@ -150,8 +148,4 @@ body {
       }
     }
   }
-}
-
-.line-through {
-  text-decoration: line-through;
 }

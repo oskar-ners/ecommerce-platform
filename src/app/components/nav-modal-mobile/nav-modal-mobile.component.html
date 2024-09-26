@@ -1,0 +1,17 @@
+<div class="mobile-modal"
+     [ngClass]="navModalMobileService.isModalOpen() ? 'open' : ''">
+    <ul>
+        <li (click)="navModalMobileService.isModalOpen.set(false)">
+            <a routerLink="/profile"><i class="fa-solid fa-person"></i>Profile</a>
+        </li>
+        <li (click)="navModalMobileService.isModalOpen.set(false)">
+            <a routerLink="/basket"><i class="fa-solid fa-cart-shopping"></i>Cart ({{numberOfProducts}})</a>
+        </li>
+        <li (click)="navModalMobileService.isModalOpen.set(false)">
+            <a routerLink="/homepage"><i class="fa-solid fa-house"></i>Homepage</a>
+        </li>
+        <li (click)="navModalMobileService.isModalOpen.set(false)">
+            <app-logout-button></app-logout-button>
+        </li>
+    </ul>
+</div>

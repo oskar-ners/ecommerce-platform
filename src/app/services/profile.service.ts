@@ -3,7 +3,7 @@ import { Auth, updateProfile } from '@angular/fire/auth';
 import { onAuthStateChanged } from 'firebase/auth';
 import { BehaviorSubject } from 'rxjs';
 import { Order } from '../interfaces/order.interface';
-import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
+import { collection, doc, getDocs } from 'firebase/firestore';
 import { Firestore, updateDoc } from '@angular/fire/firestore';
 
 @Injectable({

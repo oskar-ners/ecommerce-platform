@@ -44,12 +44,6 @@
     }
   }
 
-  .line-through {
-    text-decoration: line-through;
-    color: #b00;
-    font-weight: bold;
-  }
-
   &__details {
     padding: 1.5rem;
 
@@ -66,33 +60,8 @@
       margin-bottom: 1rem;
     }
   }
-
-  &__price-container {
-    margin-top: 1rem;
-
-    .line-through {
-      text-decoration: line-through;
-      color: #999;
-    }
-
-    &--discounted {
-      font-size: 1.25rem;
-      color: #e74c3c;
-
-      .line-through {
-        margin-right: 0.5rem;
-      }
-    }
-
-    &__price {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #27ae60;
-    }
-  }
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
   .product-listing {
     &__grid {

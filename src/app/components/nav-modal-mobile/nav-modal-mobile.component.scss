@@ -1,0 +1,65 @@
+.mobile-modal {
+  @media (min-width: 769px) {
+    display: none !important;
+  }
+
+  @media (max-width: 768px) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+    z-index: 999;
+
+    &.open {
+      height: calc(100vh - var(--navbar-height));
+    }
+
+    ul {
+      list-style: none;
+      padding: 20px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        a {
+          text-decoration: none;
+          color: #fff;
+          font-size: 1.5rem;
+          transition: color 0.3s;
+
+          &:hover {
+            color: #f0a500;
+          }
+        }
+
+        i {
+          margin-right: 10px;
+          font-size: 1.8rem;
+          transition: color 0.3s;
+
+          &:hover {
+            color: #f0a500;
+          }
+        }
+
+        i.fa-cart-shopping {
+            font-size: 1.4rem;
+        }
+        i.fa-house {
+            font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}

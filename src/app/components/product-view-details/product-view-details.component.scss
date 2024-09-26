@@ -67,26 +67,6 @@
   }
 }
 
-.product-price {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-
-  .line-through {
-    text-decoration: line-through;
-    color: #b00;
-    font-weight: bold;
-  }
-
-  span {
-    font-weight: bold;
-    font-size: 1.6rem;
-    color: #e63946;
-  }
-}
-
 .add-to-cart {
   padding: 0.9rem 1.8rem;
   background-color: #2a9d8f;
