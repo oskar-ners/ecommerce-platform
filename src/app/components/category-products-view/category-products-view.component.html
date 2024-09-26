@@ -12,13 +12,13 @@
             <h3 class="product-name">{{ product.name }}</h3>
             <p class="product-description">{{ product.description }}</p>
             @if(!product.discount) {
-
             <span style="font-weight: bold; color: black">Price:&nbsp;</span>
             <span style="font-weight: bold; color: black">{{product.price}}zł</span>
             } @else {
-            <p><span style="font-weight: bold; color: black">Price:&nbsp;</span>
+            <p>
+                <span style="font-weight: bold; color: black">Price:&nbsp;</span>
                 <span class="product-price">{{product.price}}zł</span>
-                <span class="product-price-discount">{{product.price + product.discountValue}}zł</span>
+                <span class="product-price-discount">{{product.price - product.discountValue}}zł</span>
             </p>
             }
         </div>

@@ -40,6 +40,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   totalPrice(price: number | undefined, discount: number | undefined) {
-    return (price || 0) + (discount || 0);
+    return (price || 0) - (discount || 0);
   }
 }

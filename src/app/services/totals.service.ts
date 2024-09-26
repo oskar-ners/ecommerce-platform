@@ -12,7 +12,7 @@ export class TotalsService {
     const products = await this.basketService.getBasketProducts();
     products.forEach((product) => {
       if (product.discount) {
-        orderTotal += product?.price + product.discountValue;
+        orderTotal += product?.price - product.discountValue;
       } else {
         orderTotal += product?.price || 0;
       }
