@@ -51,16 +51,9 @@
         }
 
         <div class="product-price">
-            @if(!currentProduct?.discount) {
-            <p style="font-weight: bold;">Price: {{ currentProduct?.price }}zł</p>
-            }
-            @else {
-            <p style="font-weight: bold;">Price:
-                <span style="margin-right: 10px;"
-                      class="line-through">{{ currentProduct?.price }}zł</span>
-                <span>{{ totalPrice(currentProduct?.price, currentProduct?.discountValue) }}zł</span>
-            </p>
-            }
+            <app-price [isDiscount]="currentProduct?.discount"
+                       [price]="currentProduct?.price"
+                       [discountValue]="currentProduct?.discountValue"></app-price>
         </div>
 
         <button (click)="addToBasket(currentProduct)"

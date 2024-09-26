@@ -6,11 +6,12 @@ import { RouterLink } from '@angular/router';
 import { TotalsComponent } from '../totals/totals.component';
 import { TotalsService } from '../../services/totals.service';
 import { Auth, onAuthStateChanged } from '@angular/fire/auth';
+import { PriceComponent } from '../price/price.component';
 
 @Component({
   selector: 'app-basket',
   standalone: true,
-  imports: [BackButtonComponent, TotalsComponent, RouterLink],
+  imports: [BackButtonComponent, TotalsComponent, PriceComponent, RouterLink],
   templateUrl: './basket.component.html',
   styleUrl: './basket.component.scss',
 })
@@ -19,7 +20,7 @@ export class BasketComponent implements OnInit {
   totalsService = inject(TotalsService);
   auth = inject(Auth);
 
-  productsInBasket: (Product | undefined)[] = [];
+  productsInBasket: Product[] = [];
   orderTotal: number = 0;
 
   async ngOnInit(): Promise<void> {

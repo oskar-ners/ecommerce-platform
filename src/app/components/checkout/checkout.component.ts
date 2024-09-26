@@ -6,11 +6,12 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { Auth } from '@angular/fire/auth';
 import { RouterLink } from '@angular/router';
 import { BackButtonComponent } from '../back-button/back-button.component';
+import { PriceComponent } from '../price/price.component';
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [RouterLink, BackButtonComponent],
+  imports: [RouterLink, BackButtonComponent, PriceComponent],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.scss',
 })
@@ -21,7 +22,7 @@ export class CheckoutComponent implements OnInit {
 
   orderTotal: number = 0;
 
-  products: (Product | undefined)[] = [];
+  products: Product[] = [];
 
   async ngOnInit(): Promise<void> {
     onAuthStateChanged(this.auth, async (user) => {

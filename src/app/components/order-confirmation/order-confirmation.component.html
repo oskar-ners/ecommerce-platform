@@ -21,12 +21,9 @@
                 <div class="product-info">
                     <h3>{{ product.name }}</h3>
                     <p>Description: {{ product.description }}</p>
-                    @if(product?.discount) {
-                    <span class="price">Price: <span class="line-through">{{product?.price}}zł</span>
-                        {{totalPrice(product?.price, product?.discountValue)}}zł</span>
-                    } @else {
-                    <p class="price">Price: {{product?.price}}zł</p>
-                    }
+                    <app-price [isDiscount]="product.discount"
+                               [price]="product.price"
+                               [discountValue]="product.discountValue"></app-price>
                 </div>
             </li>
             }

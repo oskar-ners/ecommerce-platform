@@ -2,21 +2,15 @@
 <div class="checkout-container">
     <h2>Your Products</h2>
     <div class="products-list">
-        @for(product of products; track product?.id) {
+        @for(product of products; track product.id) {
         <div class="product-box">
-            <img [src]="product?.image"
-                 alt="{{product?.name}}">
+            <img [src]="product.image"
+                 alt="{{product.name}}">
             <div class="product-details">
-                <h3 class="product-name">{{product?.name}}</h3>
-                @if(product?.discount) {
-                <span style="font-weight: bold">Price:
-                    <span class="line-through">{{product?.price}}zł</span>
-                    <span style="color: #e63946; margin-left: 5px;">{{totalPrice(product?.price,
-                        product?.discountValue)}}zł</span>
-                </span>
-                } @else {
-                <p style="font-weight: bold; color: black;">Price: {{product?.price}}zł</p>
-                }
+                <h3 class="product-name">{{product.name}}</h3>
+                <app-price [isDiscount]="product.discount"
+                           [price]="product.price"
+                           [discountValue]="product.discountValue"></app-price>
             </div>
         </div>
         }
