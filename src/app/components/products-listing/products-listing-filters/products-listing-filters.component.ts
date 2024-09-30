@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Product } from '../../../interfaces/product.interface';
 
 @Component({
   selector: 'app-products-listing-filters',
@@ -10,7 +9,6 @@ import { Product } from '../../../interfaces/product.interface';
   styleUrl: './products-listing-filters.component.scss',
 })
 export class ProductsListingFiltersComponent {
-  @Input() products!: Product[];
   @Output() categoryChange = new EventEmitter<string>();
 
   category: string = '';

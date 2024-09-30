@@ -10,4 +10,8 @@
     background-color: #fff;
     border: 2px solid black;
   }
+  @media (max-width: 768px) {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
 }

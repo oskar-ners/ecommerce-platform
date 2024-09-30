@@ -2,8 +2,7 @@
 
 <section class="product-listing">
     <h1 class="product-listing__title">Number of products: {{ filteredProducts.length }}</h1>
-    <app-products-listing-filters [products]="products"
-                                  (categoryChange)="filterProductsByCategory($event)"></app-products-listing-filters>
+    <app-products-listing-filters (categoryChange)="filterProductsByCategory($event)"></app-products-listing-filters>
     <div class="product-listing__grid">
         @for(product of filteredProducts; track product.id) {
         <div [routerLink]="['/homepage', product.category, product.id]"
