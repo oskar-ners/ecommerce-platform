@@ -1,0 +1,14 @@
+<div class="products-listing-filters-container">
+    <label for="filters">
+        Filter By Category:
+        <select id="filters"
+                [(ngModel)]="category"
+                (ngModelChange)="onCategoryChange($event)">
+            <option value="">----</option>
+            <option value="cars">Cars</option>
+            <option value="electronics">Electronics</option>
+            <option value="furniture">Furniture</option>
+            <option value="clothes">Clothes</option>
+        </select>
+    </label>
+</div>

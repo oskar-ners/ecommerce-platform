@@ -1,9 +1,11 @@
 <app-back-button></app-back-button>
-<section class="product-listing">
-    <h1 class="product-listing__title">Number of products: {{ products.length }}</h1>
 
+<section class="product-listing">
+    <h1 class="product-listing__title">Number of products: {{ filteredProducts.length }}</h1>
+    <app-products-listing-filters [products]="products"
+                                  (categoryChange)="filterProductsByCategory($event)"></app-products-listing-filters>
     <div class="product-listing__grid">
-        @for(product of products; track product.id) {
+        @for(product of filteredProducts; track product.id) {
         <div [routerLink]="['/homepage', product.category, product.id]"
              class="product-listing__item">
             <div class="product-listing__image-container">

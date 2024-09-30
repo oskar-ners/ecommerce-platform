@@ -4,7 +4,7 @@ import { BasketService } from '../../services/basket.service';
 import { LogoutButtonComponent } from '../logout-button/logout-button.component';
 import { Auth, onAuthStateChanged } from '@angular/fire/auth';
 import { NavModalMobileService } from '../../services/nav-modal-mobile.service';
-import { NavModalMobileComponent } from "../nav-modal-mobile/nav-modal-mobile.component";
+import { NavModalMobileComponent } from './nav-modal-mobile/nav-modal-mobile.component';
 
 @Component({
   selector: 'app-nav',

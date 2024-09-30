@@ -1,7 +1,7 @@
 import { Component, Input, inject } from '@angular/core';
-import { NavModalMobileService } from '../../services/nav-modal-mobile.service';
+import { NavModalMobileService } from '../../../services/nav-modal-mobile.service';
 import { NgClass } from '@angular/common';
-import { LogoutButtonComponent } from '../logout-button/logout-button.component';
+import { LogoutButtonComponent } from '../../logout-button/logout-button.component';
 import { RouterLink } from '@angular/router';
 
 @Component({
