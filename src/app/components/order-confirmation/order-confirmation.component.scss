@@ -48,6 +48,16 @@ body {
       margin-top: $spacing;
       line-height: 1.6;
     }
+
+    .check-order {
+      border: 1px solid black;
+      padding: 5px;
+      font-size: 14px;
+      background: #333;
+      color: white;
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
   }
 
   .products-list {

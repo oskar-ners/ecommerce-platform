@@ -12,6 +12,7 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
 import { checkoutSuccessGuard } from './guards/checkout-success.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProductsListingComponent } from './components/products-listing/products-listing.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'register', pathMatch: 'full' },
@@ -33,6 +34,7 @@ export const routes: Routes = [
   },
   { path: 'basket', component: BasketComponent, canActivate: [authGuard] },
   { path: 'checkout', component: CheckoutComponent, canActivate: [authGuard] },
+  { path: 'wishlist', component: WishlistComponent, canActivate: [authGuard] },
   {
     path: 'login',
     component: LoginComponent,

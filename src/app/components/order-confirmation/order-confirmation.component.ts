@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { BackButtonComponent } from '../back-button/back-button.component';
 import { PriceComponent } from '../price/price.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-order-confirmation',
   standalone: true,
-  imports: [BackButtonComponent, PriceComponent],
+  imports: [BackButtonComponent, PriceComponent, RouterLink],
   templateUrl: './order-confirmation.component.html',
   styleUrl: './order-confirmation.component.scss',
 })
