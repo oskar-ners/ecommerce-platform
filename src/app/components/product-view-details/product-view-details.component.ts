@@ -5,11 +5,12 @@ import { Product } from '../../interfaces/product.interface';
 import { BackButtonComponent } from '../back-button/back-button.component';
 import { BasketService } from '../../services/basket.service';
 import { PriceComponent } from '../price/price.component';
+import { AddToWishlistComponent } from '../wishlist/add-to-wishlist/add-to-wishlist.component';
 
 @Component({
   selector: 'app-product-view-details',
   standalone: true,
-  imports: [BackButtonComponent, PriceComponent],
+  imports: [BackButtonComponent, PriceComponent, AddToWishlistComponent],
   templateUrl: './product-view-details.component.html',
   styleUrl: './product-view-details.component.scss',
 })

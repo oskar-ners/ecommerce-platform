@@ -8,7 +8,7 @@
             <a routerLink="/basket"><i class="fa-solid fa-cart-shopping"></i>Cart ({{numberOfProducts}})</a>
         </li>
         <li (click)="navModalMobileService.isModalOpen.set(false)">
-            <a routerLink="/wishlist"><i class="fa-solid fa-heart"></i>Wishlist</a>
+            <a routerLink="/wishlist"><i class="fa-solid fa-heart"></i>Wishlist ({{numberOfWishlistProducts}})</a>
         </li>
         <li (click)="navModalMobileService.isModalOpen.set(false)">
             <a><i class="fa-solid fa-magnifying-glass"></i>Search</a>

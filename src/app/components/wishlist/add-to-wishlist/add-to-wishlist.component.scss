@@ -1,0 +1,10 @@
+.wishlist-button {
+  top: 3%;
+  left: 3%;
+  transition: 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.2);
+    background: red;
+  }
+}

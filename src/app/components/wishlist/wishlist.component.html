@@ -1,1 +1,20 @@
 <app-back-button></app-back-button>
+
+<h1 class="my-wishlist">My Wishlist</h1>
+@for(product of wishlistProducts; track product.id) {
+<div class="wishlist-item">
+    <img style="width: 25%"
+         [src]="product.image"
+         alt="{{ product.name }}"
+         class="product-image" />
+    <div class="product-details">
+        <h2 class="product-name">{{ product.name }}</h2>
+        <p class="product-description">{{ product.description }}</p>
+        <app-price [isDiscount]="product.discount"
+                   [price]="product.price"
+                   [discountValue]="product.discountValue"></app-price>
+        <button (click)="removeFromWishlist(product)"
+                class="remove-button">Remove</button>
+    </div>
+</div>
+}

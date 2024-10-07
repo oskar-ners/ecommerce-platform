@@ -5,6 +5,7 @@
              alt="{{ currentProduct?.name }}" />
     </div>
     <div class="product-details">
+        <app-add-to-wishlist [product]="currentProduct"></app-add-to-wishlist>
         <h1 class="product-name">{{ currentProduct?.name }}</h1>
         <p style="font-weight: bold; font-size: 1.2rem; margin-bottom: 0px">Description:</p>
         <ul>

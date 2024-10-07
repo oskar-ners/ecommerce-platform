@@ -5,11 +5,18 @@ import { Product } from '../../interfaces/product.interface';
 import { BackButtonComponent } from '../back-button/back-button.component';
 import { TitleCasePipe } from '@angular/common';
 import { PriceComponent } from '../price/price.component';
+import { AddToWishlistComponent } from '../wishlist/add-to-wishlist/add-to-wishlist.component';
 
 @Component({
   selector: 'app-category-products-view',
   standalone: true,
-  imports: [RouterLink, TitleCasePipe, BackButtonComponent, PriceComponent],
+  imports: [
+    RouterLink,
+    TitleCasePipe,
+    BackButtonComponent,
+    PriceComponent,
+    AddToWishlistComponent,
+  ],
   templateUrl: './category-products-view.component.html',
   styleUrl: './category-products-view.component.scss',
 })
