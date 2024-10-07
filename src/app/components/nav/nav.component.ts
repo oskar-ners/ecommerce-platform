@@ -6,19 +6,27 @@ import { Auth, onAuthStateChanged } from '@angular/fire/auth';
 import { NavModalMobileService } from '../../services/nav-modal-mobile.service';
 import { NavModalMobileComponent } from './nav-modal-mobile/nav-modal-mobile.component';
 import { WishlistService } from '../../services/wishlist.service';
+import { SearchService } from '../../services/search.service';
+import { SearchModalComponent } from '../search-modal/search-modal.component';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [RouterLink, LogoutButtonComponent, NavModalMobileComponent],
+  imports: [
+    RouterLink,
+    LogoutButtonComponent,
+    NavModalMobileComponent,
+    SearchModalComponent,
+  ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss',
 })
 export class NavComponent implements OnInit {
   basketService = inject(BasketService);
   wishlistService = inject(WishlistService);
-  auth = inject(Auth);
+  searchService = inject(SearchService);
   navModalMobileService = inject(NavModalMobileService);
+  auth = inject(Auth);
 
   numberOfProducts!: number;
   numberOfWishlistProducts!: number;
@@ -35,12 +43,18 @@ export class NavComponent implements OnInit {
         this.numberOfProducts = (
           await this.basketService.getBasketProducts()
         ).length;
-        this.numberOfWishlistProducts = (await this.wishlistService.getWishlistProducts()).length
+        this.numberOfWishlistProducts = (
+          await this.wishlistService.getWishlistProducts()
+        ).length;
       }
     });
   }
 
   openMobileModal(): void {
     this.navModalMobileService.isModalOpen.update((value) => !value);
+  }
+
+  openSearchModal(): void {
+    this.searchService.isSearchOpen.update((value) => !value);
   }
 }

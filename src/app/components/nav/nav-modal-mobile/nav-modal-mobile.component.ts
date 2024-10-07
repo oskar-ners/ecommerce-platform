@@ -4,6 +4,7 @@ import { NgClass } from '@angular/common';
 import { LogoutButtonComponent } from '../../logout-button/logout-button.component';
 import { RouterLink } from '@angular/router';
 import { WishlistService } from '../../../services/wishlist.service';
+import { SearchService } from '../../../services/search.service';
 
 @Component({
   selector: 'app-nav-modal-mobile',
@@ -15,6 +16,7 @@ import { WishlistService } from '../../../services/wishlist.service';
 export class NavModalMobileComponent implements OnInit {
   navModalMobileService = inject(NavModalMobileService);
   wishlistService = inject(WishlistService);
+  searchService = inject(SearchService);
 
   @Input() numberOfProducts!: number;
 
@@ -24,5 +26,10 @@ export class NavModalMobileComponent implements OnInit {
     this.wishlistService.wishlistProductsCount$.subscribe((count) => {
       this.numberOfWishlistProducts = count;
     });
+  }
+
+  closeNavOpenSearch(): void {
+    this.navModalMobileService.isModalOpen.set(false);
+    this.searchService.isSearchOpen.set(true);
   }
 }

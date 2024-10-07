@@ -1,0 +1,25 @@
+@if(searchService.isSearchOpen()) {
+<div class="search-container">
+    <div class="search-container-box">
+        <i (click)="searchService.isSearchOpen.set(false)"
+           class="fa-solid fa-xmark"></i>
+        <input class="input"
+               type="text"
+               placeholder="Search for a product..."
+               (input)="onSearch($event)" />
+
+        <ul class="product-list">
+            @for(product of filteredProducts; track product.id) {
+            <li class="product-item">
+                <img [src]="product.image"
+                     alt="{{ product.name }}"
+                     class="product-image" />
+                <div class="product-details">
+                    <span class="product-name">{{ product.name }}</span>
+                </div>
+            </li>
+            }
+        </ul>
+    </div>
+</div>
+}
