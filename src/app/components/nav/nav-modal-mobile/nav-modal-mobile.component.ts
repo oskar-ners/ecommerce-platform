@@ -31,5 +31,6 @@ export class NavModalMobileComponent implements OnInit {
   closeNavOpenSearch(): void {
     this.navModalMobileService.isModalOpen.set(false);
     this.searchService.isSearchOpen.set(true);
+    document.body.style.overflow = 'hidden';
   }
 }

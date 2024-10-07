@@ -2,11 +2,12 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ListingService } from '../../services/listing.service';
 import { Product } from '../../interfaces/product.interface';
 import { SearchService } from '../../services/search.service';
+import { NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-search-modal',
   standalone: true,
-  imports: [],
+  imports: [NgStyle],
   templateUrl: './search-modal.component.html',
   styleUrl: './search-modal.component.scss',
 })
@@ -27,5 +28,10 @@ export class SearchModalComponent implements OnInit {
     this.filteredProducts = this.products.filter((product) =>
       product.name.toLowerCase().includes(query)
     );
+  }
+
+  closeSearch(): void {
+    this.searchService.isSearchOpen.set(false);
+    document.body.style.overflow = '';
   }
 }

@@ -1,7 +1,8 @@
 @if(searchService.isSearchOpen()) {
-<div class="search-container">
+<div class="search-container"
+     [ngStyle]="{'height': searchService.isSearchOpen() ? '100%' : 'auto'}">
     <div class="search-container-box">
-        <i (click)="searchService.isSearchOpen.set(false)"
+        <i (click)="closeSearch()"
            class="fa-solid fa-xmark"></i>
         <input class="input"
                type="text"

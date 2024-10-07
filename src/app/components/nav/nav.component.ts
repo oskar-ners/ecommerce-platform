@@ -55,6 +55,7 @@ export class NavComponent implements OnInit {
   }
 
   openSearchModal(): void {
-    this.searchService.isSearchOpen.update((value) => !value);
+    this.searchService.isSearchOpen.set(true);
+    document.body.style.overflow = 'hidden';
   }
 }
