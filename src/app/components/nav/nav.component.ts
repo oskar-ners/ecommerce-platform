@@ -58,4 +58,9 @@ export class NavComponent implements OnInit {
     this.searchService.isSearchOpen.set(true);
     document.body.style.overflow = 'hidden';
   }
+
+  closeSearch(): void {
+    this.searchService.isSearchOpen.set(false);
+    document.body.style.overflow = '';
+  }
 }

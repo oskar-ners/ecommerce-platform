@@ -1,25 +1,25 @@
 <div class="mobile-modal"
      [ngClass]="navModalMobileService.isModalOpen() ? 'open' : ''">
     <ul>
-        <li (click)="navModalMobileService.isModalOpen.set(false)">
+        <li (click)="closeSearch()">
             <a routerLink="/profile"><i class="fa-solid fa-person"></i>Profile</a>
         </li>
-        <li (click)="navModalMobileService.isModalOpen.set(false)">
+        <li (click)="closeSearch()">
             <a routerLink="/basket"><i class="fa-solid fa-cart-shopping"></i>Cart ({{numberOfProducts}})</a>
         </li>
-        <li (click)="navModalMobileService.isModalOpen.set(false)">
+        <li (click)="closeSearch()">
             <a routerLink="/wishlist"><i class="fa-solid fa-heart"></i>Wishlist ({{numberOfWishlistProducts}})</a>
         </li>
         <li (click)="closeNavOpenSearch()">
             <a><i class="fa-solid fa-magnifying-glass"></i>Search</a>
         </li>
-        <li (click)="navModalMobileService.isModalOpen.set(false)">
+        <li (click)="closeSearch()">
             <a routerLink="/homepage"><i class="fa-solid fa-house"></i>Homepage</a>
         </li>
-        <li (click)="navModalMobileService.isModalOpen.set(false)">
+        <li (click)="closeSearch()">
             <a routerLink="/products-listing"><i class="fa-brands fa-product-hunt"></i>PLP</a>
         </li>
-        <li (click)="navModalMobileService.isModalOpen.set(false)">
+        <li (click)="closeSearch()">
             <app-logout-button></app-logout-button>
         </li>
     </ul>
