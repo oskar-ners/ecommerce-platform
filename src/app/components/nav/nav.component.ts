@@ -55,12 +55,12 @@ export class NavComponent implements OnInit {
   }
 
   openSearchModal(): void {
-    this.searchService.isSearchOpen.set(true);
     document.body.style.overflow = 'hidden';
+    this.searchService.isSearchOpen.set(true);
   }
 
   closeSearch(): void {
-    this.searchService.isSearchOpen.set(false);
     document.body.style.overflow = '';
+    this.searchService.isSearchOpen.set(false);
   }
 }

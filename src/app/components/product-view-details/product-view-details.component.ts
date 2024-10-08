@@ -24,10 +24,11 @@ export class ProductViewDetailsComponent implements OnInit {
   currentCategoryName!: string;
 
   ngOnInit(): void {
-    this.currentProductId = this.activatedRoute.snapshot.params['id'];
-    this.currentCategoryName =
-      this.activatedRoute.snapshot.params['categoryName'];
-    this.loadProductByCategoryAndId();
+    this.activatedRoute.params.subscribe((params) => {
+      this.currentProductId = params['id'];
+      this.currentCategoryName = params['categoryName'];
+      this.loadProductByCategoryAndId();
+    });
   }
 
   async loadProductByCategoryAndId(): Promise<void> {

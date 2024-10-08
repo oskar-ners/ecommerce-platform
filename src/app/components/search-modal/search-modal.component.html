@@ -11,7 +11,9 @@
 
         <ul class="product-list">
             @for(product of filteredProducts; track product.id) {
-            <li class="product-item">
+            <li [routerLink]="['/homepage', product.category, product.id]"
+                (click)="closeSearch()"
+                class="product-item">
                 <img [src]="product.image"
                      alt="{{ product.name }}"
                      class="product-image" />
