@@ -6,6 +6,7 @@ import { RouterLink } from '@angular/router';
 import { PriceComponent } from '../price/price.component';
 import { ProductsListingFiltersComponent } from './products-listing-filters/products-listing-filters.component';
 import { AddToWishlistComponent } from "../wishlist/add-to-wishlist/add-to-wishlist.component";
+import { LabelComponent } from '../label/label.component';
 
 @Component({
   selector: 'app-products-listing',
@@ -15,7 +16,8 @@ import { AddToWishlistComponent } from "../wishlist/add-to-wishlist/add-to-wishl
     BackButtonComponent,
     PriceComponent,
     ProductsListingFiltersComponent,
-    AddToWishlistComponent
+    AddToWishlistComponent,
+    LabelComponent
 ],
   templateUrl: './products-listing.component.html',
   styleUrl: './products-listing.component.scss',

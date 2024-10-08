@@ -4,6 +4,7 @@ export interface Product {
   discount: boolean;
   discountValue: number;
   id: string;
+  stock?: number;
   image: string;
   name: string;
   price: number;

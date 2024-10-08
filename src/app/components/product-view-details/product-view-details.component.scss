@@ -88,6 +88,9 @@
   &:active {
     transform: scale(0.98);
   }
+  &[disabled] {
+    opacity: 0.3;
+  }
 }
 
 @media screen and (max-width: 768px) {

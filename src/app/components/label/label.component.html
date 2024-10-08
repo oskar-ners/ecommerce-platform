@@ -1,0 +1,17 @@
+@switch (stock) {
+@case (0) {
+<div class="label out-of-stock">
+    <p>Out of stock</p>
+</div>
+}
+@case (1) {
+<div class="label low-stock">
+    <p>Low stock</p>
+</div>
+}
+@default {
+<div class="label in-stock">
+    <p>In stock</p>
+</div>
+}
+}

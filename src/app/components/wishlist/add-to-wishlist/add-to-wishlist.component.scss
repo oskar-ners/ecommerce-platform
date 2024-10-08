@@ -1,10 +1,31 @@
 .wishlist-button {
-  top: 3%;
-  left: 3%;
-  transition: 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #ff4081;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  i {
+    margin-right: 8px;
+  }
+
   &:hover {
-    transform: scale(1.2);
-    background: red;
+    background-color: #e91e63;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 }

@@ -13,6 +13,7 @@
                      class="product-listing__image" />
             </div>
             <div class="product-listing__details">
+                <app-label [stock]="product.stock"></app-label>
                 <app-add-to-wishlist [product]="product"></app-add-to-wishlist>
                 <h2 class="product-listing__name">{{ product.name }}</h2>
                 <p class="product-listing__description">{{ product.description }}</p>

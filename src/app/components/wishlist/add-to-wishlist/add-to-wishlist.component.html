@@ -1,4 +1,4 @@
 <button class="wishlist-button"
-        (click)="addToWishlist(product)">
-    <i class="fa-solid fa-heart">add to wishlist</i>
+        (click)="addToWishlist(product); $event.stopPropagation()">
+    <i class="fa-solid fa-heart"></i> Add to Wishlist
 </button>

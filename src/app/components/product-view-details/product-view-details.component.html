@@ -58,6 +58,7 @@
         </div>
 
         <button (click)="addToBasket(currentProduct)"
-                class="add-to-cart">Add to Cart</button>
+                class="add-to-cart"
+                [disabled]="currentProduct?.stock === 0">Add to Cart</button>
     </div>
 </div>
