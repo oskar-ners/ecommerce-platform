@@ -7,11 +7,17 @@ import { Auth } from '@angular/fire/auth';
 import { RouterLink } from '@angular/router';
 import { BackButtonComponent } from '../back-button/back-button.component';
 import { PriceComponent } from '../price/price.component';
+import { PromoCodeComponent } from '../promo-code/promo-code.component';
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [RouterLink, BackButtonComponent, PriceComponent],
+  imports: [
+    RouterLink,
+    BackButtonComponent,
+    PriceComponent,
+    PromoCodeComponent,
+  ],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.scss',
 })
@@ -27,7 +33,12 @@ export class CheckoutComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     onAuthStateChanged(this.auth, async (user) => {
       if (user) {
-        this.orderTotal = await this.totalsService.getOrderTotal();
+        const orderTotalAfterDiscount = Number(
+          localStorage.getItem('orderTotalAfterDiscount')
+        );
+        this.orderTotal = orderTotalAfterDiscount
+          ? orderTotalAfterDiscount
+          : await this.totalsService.getOrderTotal();
         this.products = await this.basketService.getBasketProducts();
       }
     });
@@ -42,5 +53,13 @@ export class CheckoutComponent implements OnInit {
 
   totalPrice(price: number | undefined, discount: number | undefined) {
     return (price || 0) - (discount || 0);
+  }
+
+  changeOrderTotalWhenDiscount(discount: number): void {
+    this.orderTotal = this.orderTotal - discount;
+    localStorage.setItem(
+      'orderTotalAfterDiscount',
+      JSON.stringify(this.orderTotal)
+    );
   }
 }

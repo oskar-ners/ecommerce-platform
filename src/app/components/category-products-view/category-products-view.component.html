@@ -8,6 +8,7 @@
              alt="{{ product.name }}"
              class="product-image">
         <div class="product-details">
+            <app-label [stock]="product.stock"></app-label>
             <app-add-to-wishlist></app-add-to-wishlist>
             <h3 class="product-name">{{ product.name }}</h3>
             <p class="product-description">{{ product.description }}</p>

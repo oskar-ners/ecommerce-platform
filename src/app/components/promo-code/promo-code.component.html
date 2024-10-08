@@ -1,0 +1,17 @@
+<form #form="ngForm"
+      (ngSubmit)="applyPromoCode(promoCode, form)"
+      class="promo-code-form">
+    <input type="text"
+           [(ngModel)]="promoCode"
+           id="promo-code"
+           name="promo-code"
+           placeholder="Type your promo code">
+    <button type="submit">Apply</button>
+
+    @if(showApplyMessage) {
+    <div class="message success">Promo Code applied!</div>
+    }
+    @if(!showApplyMessage && promoCode && form.submitted) {
+    <div class="message error">Invalid promo code</div>
+    }
+</form>

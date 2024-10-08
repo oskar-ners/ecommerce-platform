@@ -6,6 +6,7 @@ import { BackButtonComponent } from '../back-button/back-button.component';
 import { TitleCasePipe } from '@angular/common';
 import { PriceComponent } from '../price/price.component';
 import { AddToWishlistComponent } from '../wishlist/add-to-wishlist/add-to-wishlist.component';
+import { LabelComponent } from '../label/label.component';
 
 @Component({
   selector: 'app-category-products-view',
@@ -16,6 +17,7 @@ import { AddToWishlistComponent } from '../wishlist/add-to-wishlist/add-to-wishl
     BackButtonComponent,
     PriceComponent,
     AddToWishlistComponent,
+    LabelComponent
   ],
   templateUrl: './category-products-view.component.html',
   styleUrl: './category-products-view.component.scss',

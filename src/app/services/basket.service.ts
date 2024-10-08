@@ -95,6 +95,8 @@ export class BasketService {
       });
 
       await this.updateBasketCount();
+      localStorage.removeItem('promoCode');
+      localStorage.removeItem('orderTotalAfterDiscount');
     }
   }
 }

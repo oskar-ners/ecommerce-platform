@@ -17,6 +17,8 @@
         }
     </div>
 
+    <app-promo-code (promoCodeDiscount)="changeOrderTotalWhenDiscount($event)"></app-promo-code>
+
     <div class="order-total">
         <h3>Order Total: <span class="total-color">{{orderTotal}}zł</span></h3>
     </div>
